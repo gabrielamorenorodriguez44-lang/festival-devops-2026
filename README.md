@@ -31,3 +31,12 @@ Para levantar el entorno completo del festival en tu máquina local, ejecuta el 
 
 ```bash
 docker-compose up --build
+
+## 💾 ¿Cómo guardar y subir esta documentación final?
+
+Una vez que guardes el archivo `README.md` con este contenido en VS Code, ejecuta estas últimas líneas en tu terminal de Windows (CMD) para actualizar los cambios en GitHub:
+
+```cmd
+git add README.md
+git commit -m "FASE 9: Documentación completa del proyecto en el README"
+git push origin main
