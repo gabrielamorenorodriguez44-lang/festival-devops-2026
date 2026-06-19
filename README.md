@@ -1,3 +1,5 @@
+[![Integración Continua - Landing Page](https://github.com/gabrielamorenorodriguez44-lang/festival-devops-2026/actions/workflows/ci.yml/badge.svg)](https://github.com/gabrielamorenorodriguez44-lang/festival-devops-2026/actions/workflows/ci.yml)
+
 # Festival DevOps Music Fest 🎸⚡
 
 Este proyecto consiste en el despliegue y control de versiones de una aplicación contenedorizada para la gestión de un festival de música, desarrollada en el marco de la formación de DevOps y Contenedores en el CTMA.
@@ -40,3 +42,14 @@ Una vez que guardes el archivo `README.md` con este contenido en VS Code, ejecut
 git add README.md
 git commit -m "FASE 9: Documentación completa del proyecto en el README"
 git push origin main
+
+---
+
+## 🔄 Integración Continua (CI) - GitHub Actions
+
+Se ha implementado un flujo de trabajo automatizado que se ejecuta en cada evento de `push` o `pull_request` hacia la rama principal `main`. 
+
+### Validaciones Automatizadas:
+* **Entorno Virtual:** Levanta un contenedor con el sistema operativo estable `ubuntu-latest`.
+* **Checkout del Código:** Descarga de forma segura el código fuente actualizado del repositorio en el servidor de compilación.
+* **Validación de Estructura Mínima:** Comprueba de forma estricta la presencia de los archivos esenciales del proyecto: `frontend/index.html`, `frontend/style.css` y `README.md`. Si alguno de estos archivos falta o se encuentra mal ubicado, el flujo fallará automáticamente, notificando al equipo de desarrollo antes de integrar cambios dañados.
