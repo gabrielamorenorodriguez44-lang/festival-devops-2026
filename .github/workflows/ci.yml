@@ -1,0 +1,39 @@
+name: Integración Continua - Landing Page
+
+# El flujo se activa con cada push o pull request en la rama main
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-structure:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Paso 1: Descargar el código del repositorio en el servidor virtual de GitHub
+    - name: Checkout del código
+      uses: actions/checkout@v3
+
+    # Paso 2: Validar que existan los archivos esenciales requeridos por la guía
+    - name: Validar Estructura Mínima del Proyecto
+      run: |
+        echo "Verificando existencia de archivos obligatorios..."
+        
+        # Validar index.html dentro de frontend
+        if [ ! -f "frontend/index.html" ]; then
+          echo "❌ Error: Falta el archivo frontend/index.html" && exit 1
+        fi
+
+        # Validar css/style.css dentro de frontend
+        if [ ! -f "frontend/style.css" ]; then
+          echo "❌ Error: Falta el archivo frontend/style.css" && exit 1
+        fi
+
+        # Validar README.md en la raíz
+        if [ ! -f "README.md" ]; then
+          echo "❌ Error: Falta el archivo README.md" && exit 1
+        fi
+        
+        echo "✅ ¡Estructura validada con éxito!"
